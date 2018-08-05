@@ -23,21 +23,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/bt_minhasViagens"
+            android:id="@+id/bt_todasviagens"
             style="?android:attr/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Minhas Viagens"
-            android:theme="@style/ThemeOverlay.MyDarkButton"/>
-
-        <Button
-            android:id="@+id/bt_novaViagem"
-            style="?android:attr/button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nova Viagem"
+            android:text="Lista de Viagens"
             android:theme="@style/ThemeOverlay.MyDarkButton"/>
 
     </LinearLayout>

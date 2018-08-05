@@ -37,6 +37,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class GoogleSignInActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
+
     private static final String TAG = "GoogleSignInActivity";
     private static final int RC_SIGN_IN = 9001;
     private FirebaseAuth mAuth;
@@ -44,6 +45,7 @@ public class GoogleSignInActivity extends BaseActivity implements GoogleApiClien
     private GoogleApiClient mGoogleApiClient;
     private ImageView mImageView;
     private TextView mTextViewProfile;
+    private Button bt_todasViagens;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,9 @@ public class GoogleSignInActivity extends BaseActivity implements GoogleApiClien
 
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.disconnect_button).setOnClickListener(this);
+
+        bt_todasViagens = (Button)findViewById(R.id.bt_todasviagens);
+        bt_todasViagens.setVisibility(View.GONE);
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -120,9 +125,8 @@ public class GoogleSignInActivity extends BaseActivity implements GoogleApiClien
 
     private void SegueMainActivity(){
 
-        Button bt_novaViagem = (Button)findViewById(R.id.bt_novaViagem);
-
-        bt_novaViagem.setOnClickListener(new View.OnClickListener() {
+        bt_todasViagens.setVisibility(View.VISIBLE);
+        bt_todasViagens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -131,19 +135,6 @@ public class GoogleSignInActivity extends BaseActivity implements GoogleApiClien
 
             }
         });
-
-        Button bt_minhasViagens = (Button)findViewById(R.id.bt_minhasViagens);
-
-        bt_minhasViagens.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-//                Intent intent2 = new Intent(GoogleSignInActivity.this, MinhasViagensActivity.class);
-//                startActivity(intent2);
-
-            }
-        });
-
 
     }
 
